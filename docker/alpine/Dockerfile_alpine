@@ -161,6 +161,8 @@ COPY . /src/grass_build/
 WORKDIR /src/grass_build/
 # PATCH ctypes
 COPY docker/alpine/alpine-py38-ctypes.patch /src/alpine-py38-ctypes.patch
+# add GNU patch
+RUN apk add patch
 RUN patch -p1 < /src/alpine-py38-ctypes.patch
 
 # Configure compile and install GRASS GIS
